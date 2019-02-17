@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-template-areas usage</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      height: 100vh;
+    }
+    .container {
+      /* enable css grid */
+      display: grid;
+      /* setup gap between grid items */
+      grid-gap: 1em;
+      /* we can very easy position core site elements */
+      grid-template-columns: 15em auto 200px;
+      grid-template-rows: 1fr 13fr 230px;
+      grid-template-areas: "header header  header"
+                           "left   content right"
+                           "footer footer  footer";
+    }
+    .element {
+      background-color: lightgray;
+      padding: 1em;
+    }
+    .navbar {
+      grid-area: header;
+    }
+    .left {
+      grid-area: left;
+    }
+    .article {
+      grid-area: content;
+    }
+    .right {
+      grid-area: right;
+    }
+    .footer {
+      grid-area: footer;
+    }
+  </style>
+</head>
+<body class="container">
+<header class="navbar element">Header</header>
+<div class="sidebar left element">Sidebar right</div>
+<div class="article element">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dignissimos esse facere fugit in iusto modi officiis omnis quam veritatis. Ab beatae deleniti illum iure qui quisquam rem unde voluptas.
+</div>
+<div class="sidebar right element">Sidebar left</div>
+<footer class="footer element">Footer</footer>
+</body>
+</html>
