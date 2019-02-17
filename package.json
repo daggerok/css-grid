@@ -1,0 +1,26 @@
+{
+  "name": "css-grid",
+  "version": "1.0.0",
+  "description": "CSS Grid playground",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "livereload": "0.7.0",
+    "npm-run-all": "4.1.5",
+    "serve": "10.1.2"
+  },
+  "scripts": {
+    "start": "npm-run-all -p serve livereload",
+    "livereload": "livereload .",
+    "serve": "serve ."
+  },
+  "keywords": [
+    "css",
+    "grid",
+    "serve",
+    "npm-run-all",
+    "livereload"
+  ],
+  "author": "Maksim Kostromin aka daggerok",
+  "license": "MIT"
+}

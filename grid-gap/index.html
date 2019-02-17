@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Use basic CSS grid</title>
+  <style>
+    .container {
+      /* enable css grid: */
+      display: grid;
+      /* setup different widths for article and sidebar */
+      grid-template-columns: 75% 25%;
+      /* setup gap between grid items */
+      grid-gap: 1em;
+    }
+    .article, .sidebar {
+      background-color: lightgray;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body class="container">
+<div class="article">Article</div>
+<div class="sidebar">Sidebar</div>
+</body>
+</html>
