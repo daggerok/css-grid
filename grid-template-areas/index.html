@@ -5,9 +5,6 @@
   <title>grid-template-areas usage</title>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <style>
-    body {
-      height: 100vh;
-    }
     .container {
       /* enable css grid */
       display: grid;
@@ -19,6 +16,10 @@
       grid-template-areas: "header header  header"
                            "left   content right"
                            "footer footer  footer";
+    }
+    body {
+      /* we needed this to make grid-template-rows properly works */
+      height: 100vh;
     }
     .element {
       background-color: lightgray;
@@ -45,7 +46,12 @@
 <header class="navbar element">Header</header>
 <div class="sidebar left element">Sidebar right</div>
 <div class="article element">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dignissimos esse facere fugit in iusto modi officiis omnis quam veritatis. Ab beatae deleniti illum iure qui quisquam rem unde voluptas.
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto delectus dicta, dignissimos earum eum eveniet facere, iste iure magnam neque quam quas quo repellendus saepe sequi tempora veniam voluptate.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolore doloremque odit. Commodi dolorum eveniet nemo nihil, numquam obcaecati optio quis recusandae velit. Culpa doloribus facere iure labore modi suscipit?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cumque, dignissimos dolorum exercitationem impedit libero officiis omnis quibusdam quis saepe. Alias aut beatae explicabo harum nulla possimus qui voluptate voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dignissimos esse facere fugit in iusto modi officiis omnis quam veritatis. Ab beatae deleniti illum iure qui quisquam rem unde voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolorem dolores ex fugiat, hic impedit itaque nam, neque obcaecati porro sint tenetur, ullam velit vitae voluptatem? Officia quidem sit veniam!</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dignissimos esse facere fugit in iusto modi officiis omnis quam veritatis. Ab beatae deleniti illum iure qui quisquam rem unde voluptas.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolore doloremque odit. Commodi dolorum eveniet nemo nihil, numquam obcaecati optio quis recusandae velit. Culpa doloribus facere iure labore modi suscipit?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto delectus dicta, dignissimos earum eum eveniet facere, iste iure magnam neque quam quas quo repellendus saepe sequi tempora veniam voluptate.</p>
 </div>
 <div class="sidebar right element">Sidebar left</div>
 <footer class="footer element">Footer</footer>
