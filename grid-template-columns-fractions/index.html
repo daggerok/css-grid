@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-template-columns fractions usage</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <style>
+    .container {
+      /* enable css grid */
+      display: grid;
+      /* setup different widths for article and sidebar */
+      grid-template-columns: 4fr 3fr;
+      /* setup gap between grid items */
+      grid-gap: 1em;
+    }
+    .article, .sidebar {
+      background-color: lightgray;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body class="container">
+<div class="article">Article</div>
+<div class="sidebar">Sidebar</div>
+</body>
+</html>
