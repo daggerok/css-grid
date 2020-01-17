@@ -1,10 +1,14 @@
-.idea/
+.idea
+!.idea/
+.idea/*
+!.idea/runConfigurations/
 *.iml
 *.ipr
 *.iws
 *.log*
 node_modules/
-dist/
+package-lock.json
 target/
 build/
+dist/
 out/
