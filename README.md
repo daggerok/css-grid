@@ -1,4 +1,4 @@
-# CSS Grid playground
+# CSS Grid [![Build Status](https://travis-ci.org/daggerok/css-grid.svg?branch=master)](https://travis-ci.org/daggerok/css-grid)
 
 _to start just install [live-reload extension](http://livereload.com/) and run_
 

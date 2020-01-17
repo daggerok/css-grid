@@ -1,0 +1,59 @@
+notifications:
+  email: false
+git:
+  quiet: true
+  depth: false
+language: node
+node_js: lts/*
+os: linux
+addons:
+  apt:
+    packages:
+      - curl
+      - sudo
+      - lsof
+      - httpie
+install: true
+before_install:
+  - |
+    if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
+      mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
+      curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+    fi
+    source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+  - stop_any 30 80 3000 5000 8080 5432
+jobs:
+  include:
+    - stage: test
+      name: test
+      before_script:
+        - cd $TRAVIS_BUILD_DIR && npm i -E
+        - cd $TRAVIS_BUILD_DIR && npm run forever
+        - cd $TRAVIS_BUILD_DIR && npm run logs &
+        - wait_for 5000
+      script:
+        - http :5000
+      after_script: cd $TRAVIS_BUILD_DIR && npm run stop
+    - stage: deploy
+      name: GitHub pages deploy
+      script: skip
+      if: branch = "master" AND type NOT IN (pull_request)
+      before_deploy:
+        - cd $TRAVIS_BUILD_DIR && npm i
+        - cd $TRAVIS_BUILD_DIR && npm run gh
+      env:
+        secure: "if+OearRkg7JuP7WhYhfQloxRDKmz9FTiqjnA4Ex7G0ODHFL3RkxZNJUwSsE2q7D8bjk00iTXaFHMmn2/o80Pb54aj2uAGfHQzKqQ/q9RMmOKptW3Q11uSKyJCNTcVBxnDxgI5xDIpXXICngQxORqmaS1Lx/YGZKJvcie6aMwDLZtJ0E0yzgtcko1OdQnEYTz23BqWlgKAv8++oMSNiQye+wrDQ2IfEdVegRrQQXqp2XZS7WS3q5JDrWsluGHQ5ms3YnTMekpGG8yVXIhbXu5xST25oT9iXnVi57BemaUYDJb7KAWubB+CxjF4VGXrNty5SmyJXwBVCvpHAGj8/9WOpM90Bfw49CQfzCMo988o1/LWwrWrKvU7KnsAoIFzK3f2P7I2v9gN9OX55QKcSPSkgHeYIQVVk4v6KHRKy2fUMCcl0lF5Ya37sa5Og9pcaJ+vciNJqhYfjSxetEBuBdAdRAfGRB2qyYkVZ810ZX2zEZoDgkspWTK5HRlEVcn4tUca1gGCFPcPoHrl+KBu/TIz/ni+9V9l0p7eeFjzKCRZppLEHG8dSQJ8FrI2Jj3FURi9LRaI0za3EG9rgV9hWkIbqd/kXaxPn+AgIA9UALpYjaqPyH8rO+37a1vBerLWwZhnyBYPEHWowMiQdQky1G0DP7c/IxoTyWPt/m2pghQJ4="
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: "$GITHUB_TOKEN"
+        keep-history: true
+        on:
+          branch: master
+        local-dir: $TRAVIS_BUILD_DIR
+        target_branch: gh-pages
+cache:
+  npm: true
+  directories:
+    - ~/.local/daggerok
+    - ~/.n*
