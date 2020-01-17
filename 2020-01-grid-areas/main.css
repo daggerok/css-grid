@@ -30,6 +30,8 @@ main {
 
     /*
     variant 3 (shortest)
+
+    grid-area: g-col-start / g-row-start / g-col-end / g-row-end;
     */
     grid-area: 1 / 1 / 3 / 3;
 }
