@@ -5,7 +5,6 @@ git:
   depth: false
 language: node
 node_js: lts/*
-service: docker
 os: linux
 addons:
   apt:
@@ -14,10 +13,8 @@ addons:
       - sudo
       - lsof
       - httpie
-      - docker-ce
 install: true
 before_install:
-  - export DISPLAY=:99.0
   - |
     if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
       mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
