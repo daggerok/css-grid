@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr;
+    grid-template-rows: 1fr 4fr 3fr 2fr;
+    grid-template-areas:
+         "main   main   header"
+         "main   main   aside "
+         "nom    yum    aside "
+         "footer footer aside "
+    ;
+    height: 100vh;
+}
+
+main {
+    background-color: bisque;
+    grid-area: main;
+}
+
+section.nom {
+    background-color: aqua;
+    grid-area: nom;
+}
+
+section.yum {
+    background-color: aquamarine;
+    grid-area: yum;
+}
+
+footer {
+    background-color: burlywood;
+    grid-area: footer;
+}
+
+header {
+    background-color: cadetblue;
+    grid-area: header;
+}
+
+aside {
+    background-color: cornsilk;
+    grid-area: aside;
+}
