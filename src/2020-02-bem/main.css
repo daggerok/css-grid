@@ -1,0 +1,72 @@
+html,
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif, Consolas, "Courier New";
+    background: antiquewhite;
+}
+
+.card {
+    padding: 0 5em;
+}
+
+.card__picture {
+    display: block;
+    height: 10em;
+    width: 100%;
+    background: brown;
+}
+
+.card__content {
+    padding: 1.5em;
+    background: whitesmoke;
+}
+
+.card__list {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.card__item {
+    padding: .5em;
+    margin-right: .5em;
+    background: #dfdfdf;
+    border-radius: .3em;
+    font-size: .7em;
+    font-weight: bold;
+}
+
+.card__item:hover {
+    background: #dd44dd;
+    color: antiquewhite;
+}
+
+.card__item--active {
+    background: #dd44dd;
+}
+
+.card__description {
+}
+
+.card__action {
+    background: #72bec0;
+    color: white;
+    text-decoration: none;
+    padding: .5em 1em;
+    display: inline-block;
+    margin-top: .5em;
+    border-radius: .5em;
+}
+
+.card__action:hover {
+    background: #8ee2e5;
+    color: gray;
+}

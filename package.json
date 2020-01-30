@@ -13,10 +13,10 @@
   "scripts": {
     "predeploy": "npm-run-all predeploy:*",
     "predeploy:build": "npm run build -- --public-url='/css-grid/'",
-    "predeploy:gh": "ncp dist/index.html dist/404.html",
+    "predeploy:404": "ncp dist/index.html dist/404.html",
     "predeploy:nojekyll": "ncp dist/index.html dist/.nojekyll",
-    "start": "parcel serve -p 5000 --no-cache index.html",
-    "build": "parcel build --no-cache index.html",
+    "start": "parcel --no-cache -p 5000 src/index.html",
+    "build": "parcel build --no-cache src/index.html",
     "serve": "serve dist",
     "forever": "forever start ./node_modules/.bin/serve dist",
     "logs": "forever -f logs 0",
