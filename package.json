@@ -3,20 +3,22 @@
   "version": "1.0.1",
   "description": "CSS Grid playground",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
     "forever": "2.0.0",
-    "livereload": "0.8.2",
     "ncp": "2.0.0",
     "npm-run-all": "4.1.5",
+    "parcel-bundler": "1.12.4",
     "serve": "11.3.0"
   },
   "scripts": {
-    "gh": "ncp index.html 404.html",
-    "start": "npm-run-all -p serve livereload",
-    "livereload": "livereload .",
-    "serve": "serve .",
-    "forever": "forever start ./node_modules/.bin/serve .",
+    "predeploy": "npm-run-all predeploy:*",
+    "predeploy:build": "npm run build -- --public-url='/css-grid/'",
+    "predeploy:gh": "ncp dist/index.html dist/404.html",
+    "predeploy:nojekyll": "ncp dist/index.html dist/.nojekyll",
+    "start": "parcel serve -p 5000 --no-cache index.html",
+    "build": "parcel build --no-cache index.html",
+    "serve": "serve dist",
+    "forever": "forever start ./node_modules/.bin/serve dist",
     "logs": "forever -f logs 0",
     "stop": "forever stopall --killTree"
   },
@@ -24,8 +26,7 @@
     "css",
     "grid",
     "serve",
-    "npm-run-all",
-    "livereload"
+    "npm-run-all"
   ],
   "author": "Maksim Kostromin aka daggerok",
   "license": "MIT"
