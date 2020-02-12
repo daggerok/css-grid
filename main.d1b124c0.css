@@ -1,0 +1,2 @@
+body,html{height:100vh}body{margin:0;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:1fr 9fr 2fr}aside{grid-column:1/span 2;background-color:#faadc6}header{grid-column:1/-1;background-color:#75ddff}main{grid-column:3/-1;background-color:#c0b366}footer{grid-column:1/-1;background-color:#72bec0}
+/*# sourceMappingURL=/css-grid/main.d1b124c0.css.map */
